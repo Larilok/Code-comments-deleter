@@ -3,6 +3,8 @@ package com.Michael;
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        TextWorker t = new TextWorker();
+        t.manualInit();
+        t.delCommentsWODocCom();
     }
 }
