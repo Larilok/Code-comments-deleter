@@ -39,19 +39,26 @@ public class TextWorker {
         *
         */
 
-        /* come comment around*/
+        /* Some comment around*/
         StringBuilder temp = new StringBuilder();
+        String string = new String("https://github.com/Larilok/Java_Lab2");     //SOLVED
+        /*"[01]?[0-9]|2[0-3]:[0-5][0-9]"  multi line comment in one line        SOLVED */
 
-        /*"[01]?[0-9]|2[0-3]:[0-5][0-9]"  multi line comment in one line       SOLVED */
-       /* (\r)?\n+
-        strings = data.split("\\R");
-        for (String string : strings) {   multi line comment                   TODO */
+        /* (\r)?\n+
+        strings = data.split("\\R");                                SOLVED
+        for (String string : strings) {   multi line comment                    */
 
         //((?!https?))[^:][/][*/][^*].*(\R)*([*][/])?      single line comment  SOLVED
 
-            temp.append(data.replaceAll("[^:][/][*/][^*].*(\\R)*([*][/])?", "")).append('\n');
+            temp.append(data.replaceAll("[^:](/\\*([^*]|\\R)*\\*/|//.*)", "")).append('\n');    //TODO
         //}
+
+        // The comment around this code has been commented out.
+        // /*       WT
             System.out.println(temp.toString());  //[/][*/].+([*][/])?  single line comment beh text SOLVED
+        // */       F
+
+
 
     }
 }
