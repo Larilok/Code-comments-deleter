@@ -62,7 +62,7 @@ public class TextWorker {
 
         //((?!https?))[^:][/][*/][^*].*(\R)*([*][/])?      single line comment  SOLVED
 
-            temp.append(data.replaceAll("[^:]((/\\*([^*]|\\R|(\\*+([^*/]|\\R)))*\\*/)|//.*)", "")).append('\n');    //TODO
+            temp.append(data.replaceAll("[^:]((/\\*([^*]|\\R|(\\*+([^*/]|\\R)))*\\*+/)|//.*)", "")).append('\n');    //TODO
         //}
 
         // The comment around this code has been commented out.
