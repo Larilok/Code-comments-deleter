@@ -37,11 +37,23 @@ public class TextWorker {
         *
         * Damn C-style comments                                                 TODO
         *
-        */
+        ****/
+
+
+        /****
+         * Common multi-line comment style.
+         ****/
+
+        String string = new String("https://github.com/Larilok/Java_Lab2");     //SOLVED
+        /*
+         * Another common multi-line comment style.
+         */
 
         /* Some comment around*/
         StringBuilder temp = new StringBuilder();
-        String string = new String("https://github.com/Larilok/Java_Lab2");     //SOLVED
+
+
+
         /*"[01]?[0-9]|2[0-3]:[0-5][0-9]"  multi line comment in one line        SOLVED */
 
         /* (\r)?\n+
@@ -50,7 +62,7 @@ public class TextWorker {
 
         //((?!https?))[^:][/][*/][^*].*(\R)*([*][/])?      single line comment  SOLVED
 
-            temp.append(data.replaceAll("[^:]((/\\*([^*]|\\R|(\\*([^/]|\\R)))*\\*/)|//.*)", "")).append('\n');    //TODO
+            temp.append(data.replaceAll("[^:]((/\\*([^*]|\\R|(\\*+([^*/]|\\R)))*\\*/)|//.*)", "")).append('\n');    //TODO
         //}
 
         // The comment around this code has been commented out.
