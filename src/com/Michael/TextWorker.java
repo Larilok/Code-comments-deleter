@@ -2,7 +2,8 @@ package com.Michael;
 
 
 import java.util.Scanner;
-
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class TextWorker {
     private String data;
@@ -32,10 +33,18 @@ public class TextWorker {
     }
 
     void delCommentsWODocCom(){
-
-       /* String[] strings;
+        StringBuilder temp = new StringBuilder();
+        String REGEX = "[^:|]((?:/\\*(?:[^*]|\\R|(?:\\*+(?:[^*/]|\\R)))*\\*+/)|//.*)";
+        System.out.println("The regex using to del comments is : " + REGEX);
+        Pattern p = Pattern.compile(REGEX);
+        Matcher m = p.matcher(data);
+        while(m.find()){
+            m.appendReplacement(temp, "");
+        }
+        m.appendTail(temp);
+        /* String[] strings;
         *
-        * Damn C-style comments                                                 TODO
+        * Damn C-style comments                                                 SOLVED
         *
         ****/
 
@@ -50,9 +59,10 @@ public class TextWorker {
          */
 
         /* Some comment around*/
-        StringBuilder temp = new StringBuilder();
 
 
+        //temp.append(data.replaceAll("[^:|]((?:/\\*(?:[^*]|\\R|(?:\\*+(?:[^*/]|\\R)))*\\*+/)|//.*)", ""));
+        System.out.println(temp.toString());  //[/][*/].+([*][/])?  single line comment beh text SOLVED
 
         /*"[01]?[0-9]|2[0-3]:[0-5][0-9]"  multi line comment in one line        SOLVED */
 
@@ -61,13 +71,11 @@ public class TextWorker {
         for (String string : strings) {   multi line comment                    */
 
         //((?!https?))[^:][/][*/][^*].*(\R)*([*][/])?      single line comment  SOLVED
-
-            temp.append(data.replaceAll("[^:]((/\\*([^*]|\\R|(\\*+([^*/]|\\R)))*\\*+/)|//.*)", "")).append('\n');    //TODO
-        //}
+        //}                                    (\".*?\"|\'.*?\')|(/\*.*?\*/|//[^\r\n]*$)
+        //                       (\".*?(?<!\\)\"|\'.*?(?<!\\)\')|(/\*.*?\*/|//[^\r\n]*$)
 
         // The comment around this code has been commented out.
         // /*       WT
-            System.out.println(temp.toString());  //[/][*/].+([*][/])?  single line comment beh text SOLVED
         // */       FRRR
 
 
